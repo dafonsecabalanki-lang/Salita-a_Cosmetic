@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Teste - Salita'a Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #D9B84A;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #D9B84A;
+            box-shadow: 0 0 0 2px rgba(217, 184, 74, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(90deg, #D9B84A, #F7F2D9);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: linear-gradient(90deg, #B8A03D, #F0E8C7);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Teste - Backend</h1>
+        
+        <form id="contatoForm">
+            <div class="form-group">
+                <label for="nome">Nome *</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="gmail">E-mail *</label>
+                <input type="email" id="gmail" name="gmail" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="numero">Número de telefone *</label>
+                <input type="tel" id="numero" name="numero" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="descricao">Descrição/Mensagem *</label>
+                <textarea id="descricao" name="descricao" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn">Enviar Mensagem</button>
+        </form>
+        
+        <div class="loading" id="loading">
+            <p>Enviando mensagem...</p>
+        </div>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contatoForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Desabilitar botão e mostrar loading
+            submitBtn.disabled = true;
+            loading.style.display = 'block';
+            status.innerHTML = '';
+
+            try {
+                const formData = new FormData(form);
+                const data = {
+                    nome: formData.get('nome'),
+                    gmail: formData.get('gmail'),
+                    numero: formData.get('numero'),
+                    descricao: formData.get('descricao')
+                };
+
+                const response = await fetch('http://localhost:3000/contato', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    status.innerHTML = `<div class="status success">${result.message}</div>`;
+                    form.reset();
+                } else {
+                    status.innerHTML = `<div class="status error">${result.message}</div>`;
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                status.innerHTML = `<div class="status error">Erro de conexão. Verifique se o servidor está rodando.</div>`;
+            } finally {
+                // Reabilitar botão e esconder loading
+                submitBtn.disabled = false;
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
