@@ -1,3 +1,4 @@
+/* Reset e box-sizing */
 * {
     margin: 0;
     padding: 0;
@@ -44,16 +45,15 @@ header {
 }
 
 .logo-container {
-    background: url("IMG-20250801-WA0019.jpg") left top / contain no-repeat;
+    background: url("images/IMG-20250801-WA0019.jpg") left top / contain no-repeat;
     min-height: 260px;
     padding: 15px 20px 5px 20px;
     position: relative;
     margin-left: -150px;
 }
 
-/* Imagem de fundo como <img> para layout lado a lado no mobile */
 .logo-bg {
-    display: none;
+    display: none; /* desktop */
 }
 
 .header-image {
@@ -107,8 +107,8 @@ nav a {
     margin: 0 15px;
     font-weight: bold;
     transition: color 0.3s;
-    white-space: nowrap; /* impede quebrar em duas linhas */
-    flex: 0 0 auto; /* não encolhe ao ponto de quebrar */
+    white-space: nowrap;
+    flex: 0 0 auto;
 }
 nav a:hover,
 nav a:focus {
@@ -172,12 +172,12 @@ ul {
 }
 .btn-whatsapp {
     background: #25D366;
-    color: #000;
+    color: #fff; /* melhor contraste */
 }
 .btn-whatsapp:hover,
 .btn-whatsapp:focus {
     background: #1ebe57;
-    color: #000;
+    color: #fff;
 }
 
 /* Contato */
@@ -238,23 +238,15 @@ footer {
     font-size: 0.9em;
 }
 
-/* Responsividade para telemóvel e PC */
+/* Responsividade */
 @media (max-width: 768px) {
-    /* Ajustes para telemóvel */
-    body {
-        padding-top: 70px;
-    }
-    header {
-        padding: 10px 15px;
-        min-height: 180px;
-        max-width: 360px;
-    }
+    body { padding-top: 70px; }
+    header { padding: 10px 15px; min-height: 180px; max-width: 360px; }
     .logo-container {
         margin-left: 0;
         padding: 10px 0 0 0;
         background-position: center top;
         background-size: contain;
-        /* Mantém as duas imagens lado a lado no mobile usando <img> */
         background-image: none;
         min-height: auto;
         display: flex;
@@ -262,148 +254,44 @@ footer {
         justify-content: center;
         gap: 10px;
     }
-    .header-image {
-        position: static;
-        display: block;
-        width: 50%;
-        max-width: none;
-        height: auto;
-        margin: 0;
-        right: auto;
-        top: auto;
-    }
-    .logo-bg {
-        display: block;
-        width: 50%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    /* Garante mesmo tamanho visual: mesma proporção e corte controlado */
-    .logo-container img {
-        aspect-ratio: 4 / 3;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-    .tagline p {
-        font-size: 1.1em;
-        padding: 8px 16px;
-    }
-    nav {
-        padding: 8px;
-        flex-wrap: nowrap; /* mantém todos os itens em uma fileira */
-        overflow-x: auto; /* permite rolagem horizontal se não couber */
-        -webkit-overflow-scrolling: touch;
-    }
-    nav a {
-        margin: 5px 8px;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-    section {
-        padding: 30px 15px;
-    }
-    h2 {
-        font-size: 1.8em;
-        margin-bottom: 20px;
-    }
-    .produtos-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .card {
-        padding: 20px;
-        margin-bottom: 10px;
-    }
-    .formulario {
-        max-width: 100%;
-    }
-    .formulario input,
-    .formulario textarea {
-        font-size: 16px; /* Evita zoom no iOS */
-    }
+    .header-image { position: static; display: block; width: 50%; height: auto; margin: 0; }
+    .logo-bg { display: block; width: 50%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .logo-container img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: 8px; }
+    .tagline p { font-size: 1.1em; padding: 8px 16px; }
+    nav { padding: 8px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    nav a { margin: 5px 8px; font-size: 14px; padding: 8px 12px; }
+    section { padding: 30px 15px; }
+    h2 { font-size: 1.8em; margin-bottom: 20px; }
+    .produtos-grid { grid-template-columns: 1fr; gap: 15px; }
+    .card { padding: 20px; margin-bottom: 10px; }
+    .formulario input, .formulario textarea { font-size: 16px; }
 }
 
 @media (max-width: 480px) {
-    /* Ajustes para telemóveis pequenos */
-    body {
-        padding-top: 60px;
-    }
-    header {
-        padding: 8px 10px;
-        min-height: 130px;
-        max-width: 260px;
-    }
+    body { padding-top: 60px; }
+    header { padding: 8px 10px; min-height: 130px; max-width: 260px; }
     .header-image { max-width: none; }
-    .tagline p {
-        font-size: 1em;
-        padding: 6px 12px;
-    }
-    nav a {
-        margin: 3px 5px;
-        font-size: 13px;
-        padding: 6px 10px;
-    }
-    section {
-        padding: 20px 10px;
-    }
-    h2 {
-        font-size: 1.6em;
-    }
-    .card {
-        padding: 15px;
-    }
+    .tagline p { font-size: 1em; padding: 6px 12px; }
+    nav a { margin: 3px 5px; font-size: 13px; padding: 6px 10px; }
+    section { padding: 20px 10px; }
+    h2 { font-size: 1.6em; }
+    .card { padding: 15px; }
 }
 
 @media (min-width: 769px) {
-    /* Ajustes para PC e tablets grandes */
-    body {
-        padding-top: 90px;
-    }
-    header {
-        padding: 20px 40px;
-        min-height: 320px;
-        max-width: 620px;
-    }
-    .tagline p {
-        font-size: 1.4em;
-        padding: 12px 25px;
-    }
-    nav {
-        padding: 15px;
-    }
-    nav a {
-        margin: 0 25px;
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-    section {
-        padding: 60px 40px;
-    }
-    h2 {
-        font-size: 2.5em;
-    }
-    .produtos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-    .card {
-        padding: 30px;
-    }
-    .formulario {
-        max-width: 600px;
-    }
+    body { padding-top: 90px; }
+    header { padding: 20px 40px; min-height: 320px; max-width: 620px; }
+    .tagline p { font-size: 1.4em; padding: 12px 25px; }
+    nav { padding: 15px; }
+    nav a { margin: 0 25px; font-size: 16px; padding: 10px 20px; }
+    section { padding: 60px 40px; }
+    h2 { font-size: 2.5em; }
+    .produtos-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { padding: 30px; }
+    .formulario { max-width: 600px; }
 }
 
 @media (min-width: 1200px) {
-    /* Ajustes para ecrãs muito grandes */
-    .produtos-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 35px;
-    }
-    section {
-        max-width: 1200px;
-    }
+    .produtos-grid { grid-template-columns: repeat(4, 1fr); gap: 35px; }
+    section { max-width: 1200px; }
 }
-
