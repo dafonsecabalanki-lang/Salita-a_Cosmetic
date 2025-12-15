@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salita'a Cosmetic</title>
+    <meta name="description" content="Salita'a Cosmetic: cosméticos naturais. Sabão preto, babosa, mel e mais. Beleza natural com identidade e qualidade.">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <link rel="canonical" href="index.html">
+    <meta property="og:title" content="Salita'a Cosmetic">
+    <meta property="og:description" content="Marca de cosméticos naturais. Produtos artesanais para pele e cabelo.">
+    <meta property="og:image" content="images/IMG-20250801-WA0019.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salita'a Cosmetic">
+    <meta name="twitter:description" content="Cosméticos naturais artesanais para pele e cabelo.">
+    <meta name="twitter:image" content="images/IMG-20250801-WA0019.jpg">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo-principal">Saltar para o conteúdo</a>
+
+<nav aria-label="Navegação principal">
+    <a href="#sobre">Quem Somos</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#visao">Missão e Visão</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<header>
+    <div class="logo-container">
+        <img src="images/IMG-20250801-WA0019.jpg" alt="Logotipo Salita'a Cosmetic" class="logo-bg" width="400" height="300" loading="lazy">
+        <img src="images/IMG-20250828-WA0029.jpg" alt="Grupo de jovens da escola de programação" class="header-image" width="400" height="300" loading="lazy">
+    </div>
+</header>
+
+<main id="conteudo-principal">
+<section id="sobre">
+    <h2>Salita'a Cosmetic</h2>
+    <p>A Salita'a Cosmetic nasceu em novembro de 2023 com o propósito de valorizar a beleza natural através de cosméticos feitos com ingredientes locais, respeitando a tradição, a natureza e a diversidade da pele.</p>
+    
+    <p>Nosso objetivo é simples, mas profundo: transformar o ato de cuidar de si em um momento de amor-próprio, bem-estar e empoderamento. Por isso, criamos fórmulas naturais e eficazes que cuidam da pele e do cabelo, inclusive dos mais sensíveis, trazendo resultados reais e sustentáveis.</p>
+    
+    <p>A Salita'a Cosmetic é fruto da energia, paixão e criatividade de jovens empreendedores que trabalham juntos para transformar sonhos em realidade e inspirar outras gerações. Mais do que uma marca de cosméticos, representamos uma juventude empreendedora que acredita na força da inovação local para gerar impacto global.</p>
+    
+    <p>Acreditamos profundamente que a beleza natural vai muito além da estética: ela é a expressão das nossas raízes, da nossa cultura e da nossa história. Cada produto da Salita'a é também um tributo à tradição, à força do nosso passado e à essência que nos torna únicos.</p>
+    
+    <p><em>Criada por <strong>Wassila Maiara Gomes Ocante (Merry)</strong></em></p>
+</section>
+
+<section id="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="produtos-grid">
+        <div class="card">
+            <h3>Sabão Salita'a</h3>
+            <p>Limpeza, hidratação e combate a espinhas e manchas.</p>
+            <div class="actions">
+                <a class="btn btn-whatsapp" href="https://wa.me/245956883363?text=Olá%20Salita'a!%20Quero%20saber%20mais%20sobre%20o%20Sabão%20Salita'a." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Shampoo</h3>
+            <p>Cuidados capilares naturais para cabelos saudáveis.</p>
+            <div class="actions">
+                <a class="btn btn-whatsapp" href="https://wa.me/245956883363?text=Olá%20Salita'a!%20Quero%20saber%20mais%20sobre%20o%20Shampoo." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+        </div>
+        <!-- Adicionar os outros produtos seguindo o mesmo padrão -->
+    </div>
+</section>
+
+<section id="visao">
+    <h2>Missão e Visão</h2>
+    <p><strong>Missão:</strong> Valorizar os produtos naturais locais e promover a beleza natural com orgulho e identidade.</p>
+    <p><strong>Visão:</strong> Tornar a Salita'a Cosmetic uma referência nacional e internacional em cosmética natural.</p>
+</section>
+
+<section id="contato" class="contato">
+    <h2>Contato</h2>
+    <p><strong>Instagram & TikTok:</strong> <a href="https://www.instagram.com/salitaacosmetic" target="_blank" rel="noopener noreferrer">@salitaacosmetic</a></p>
+    <p><strong>Telefone:</strong> <a href="tel:+245956883363">+245 956 88 33 63</a></p>
+    <p><strong>Email:</strong> <a href="mailto:prouncessgomis934@gmail.com">prouncessgomis934@gmail.com</a></p>
+
+    <form id="contato-form" class="formulario" action="http://localhost:3000/contato" method="POST">
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+        <label for="email">Seu email</label>
+        <input id="email" name="email" type="email" placeholder="Seu email" required>
+        <label for="telefone">Seu número de telemóvel</label>
+        <input id="telefone" name="telefone" type="tel" placeholder="Seu telemóvel" required>
+        <label for="mensagem">Sua mensagem</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+        <input type="hidden" name="_subject" value="Nova mensagem do site Salita'a">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>
+    <p>&copy; 2025 Salita'a Cosmetic - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+(function(){
+  const form = document.getElementById('contato-form');
+  const statusEl = document.getElementById('form-status');
+  if(!form) return;
+
+  const FORM_ENDPOINT = form.action;
+
+  form.addEventListener('submit', async function(event){
+    event.preventDefault();
+    statusEl.textContent = 'Enviando...';
+    statusEl.className = 'form-status';
+
+    try {
+      const payload = {
+        nome: form.nome.value,
+        email: form.email.value,
+        telefone: form.telefone.value,
+        mensagem: form.mensagem.value
+      };
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        form.reset();
+        statusEl.textContent = data?.message || 'Mensagem enviada com sucesso!';
+        statusEl.className = 'form-status success';
+      } else {
+        const data = await response.json().catch(() => null);
+        statusEl.textContent = data?.message || 'Não foi possível enviar. Tente novamente mais tarde.';
+        statusEl.className = 'form-status error';
+      }
+    } catch (e) {
+      statusEl.textContent = 'Ocorreu um erro de conexão. Verifique sua internet e tente de novo.';
+      statusEl.className = 'form-status error';
+    }
+  });
+})();
+</script>
+</body>
+</html>

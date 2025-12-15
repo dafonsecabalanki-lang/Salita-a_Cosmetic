@@ -1,0 +1,297 @@
+/* Reset e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #FFFFFF;
+    padding-top: 80px;
+}
+
+/* Link para pular conteúdo principal */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    background: #000;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 1001;
+}
+
+/* Header com imagem centralizada */
+header {
+    color: #333333;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    background: url("images/IMG-20250801-WA0019.jpg") left top / contain no-repeat;
+    min-height: 260px;
+    padding: 15px 20px 5px 20px;
+    position: relative;
+    margin-left: -150px;
+}
+
+.logo-bg {
+    display: none; /* desktop */
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    right: -250px;
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Evita layout shift com dimensões explícitas e lazy no conteúdo não crítico */
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+.tagline {
+    padding: 5px 0 15px 0;
+    background: #FFFFFF;
+}
+
+.tagline p {
+    background: #D9B84A;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 0;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Navegação no topo */
+nav {
+    background: #D9B84A;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+nav a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+nav a:hover,
+nav a:focus {
+    color: #fff;
+    outline: none;
+}
+
+/* Conteúdo */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    scroll-margin-top: 20px;
+}
+h2 {
+    color: #D9B84A;
+    margin-bottom: 15px;
+}
+p {
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #333333;
+}
+
+/* Produtos em grade */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    background: #FAFAFA;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Ações e botões */
+.actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+.btn-whatsapp {
+    background: #25D366;
+    color: #fff; /* melhor contraste */
+}
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+    background: #1ebe57;
+    color: #fff;
+}
+
+/* Contato */
+.contato {
+    background: #FAFAFA;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+.contato p {
+    margin-bottom: 10px;
+    color: #333333;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+.formulario label {
+    font-weight: 600;
+    color: #333333;
+}
+.formulario input, .formulario textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.formulario button {
+    background: linear-gradient(90deg, #D9B84A, #F7F2D9);
+    color: #000;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.formulario button:hover,
+.formulario button:focus {
+    background: linear-gradient(90deg, #B8A03D, #F0E8C7);
+}
+
+/* Mensagem de status do formulário */
+.form-status {
+    margin-top: 12px;
+    font-weight: 600;
+}
+.form-status.success { color: #1b5e20; }
+.form-status.error { color: #b71c1c; }
+
+/* Rodapé */
+footer {
+    background: linear-gradient(90deg, #D9B84A, #FFFFFF);
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    header { padding: 10px 15px; min-height: 180px; max-width: 360px; }
+    .logo-container {
+        margin-left: 0;
+        padding: 10px 0 0 0;
+        background-position: center top;
+        background-size: contain;
+        background-image: none;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header-image { position: static; display: block; width: 50%; height: auto; margin: 0; }
+    .logo-bg { display: block; width: 50%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .logo-container img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: 8px; }
+    .tagline p { font-size: 1.1em; padding: 8px 16px; }
+    nav { padding: 8px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    nav a { margin: 5px 8px; font-size: 14px; padding: 8px 12px; }
+    section { padding: 30px 15px; }
+    h2 { font-size: 1.8em; margin-bottom: 20px; }
+    .produtos-grid { grid-template-columns: 1fr; gap: 15px; }
+    .card { padding: 20px; margin-bottom: 10px; }
+    .formulario input, .formulario textarea { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+    body { padding-top: 60px; }
+    header { padding: 8px 10px; min-height: 130px; max-width: 260px; }
+    .header-image { max-width: none; }
+    .tagline p { font-size: 1em; padding: 6px 12px; }
+    nav a { margin: 3px 5px; font-size: 13px; padding: 6px 10px; }
+    section { padding: 20px 10px; }
+    h2 { font-size: 1.6em; }
+    .card { padding: 15px; }
+}
+
+@media (min-width: 769px) {
+    body { padding-top: 90px; }
+    header { padding: 20px 40px; min-height: 320px; max-width: 620px; }
+    .tagline p { font-size: 1.4em; padding: 12px 25px; }
+    nav { padding: 15px; }
+    nav a { margin: 0 25px; font-size: 16px; padding: 10px 20px; }
+    section { padding: 60px 40px; }
+    h2 { font-size: 2.5em; }
+    .produtos-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { padding: 30px; }
+    .formulario { max-width: 600px; }
+}
+
+@media (min-width: 1200px) {
+    .produtos-grid { grid-template-columns: repeat(4, 1fr); gap: 35px; }
+    section { max-width: 1200px; }
+}
