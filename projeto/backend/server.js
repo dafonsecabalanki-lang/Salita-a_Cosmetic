@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const { Resend } = require('resend');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config({ path: './config.env' });
 
 const app = express();
@@ -12,6 +13,12 @@ const DEMO_MODE = String(process.env.DEMO_MODE || '').toLowerCase() === 'true';
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Servir os arquivos estáticos do frontend
+app.use(express.static(path.join(__dirname, "../html/salita'a")));
+// Resolver /favicon.ico (mesmo que o arquivo seja .jpg)
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, "../html/salita'a", "favicon.ico.jpg"));
+});
 
 // Preferir Resend se RESEND_API_KEY estiver configurada
 const isResendEnabled = Boolean(process.env.RESEND_API_KEY);
